@@ -1,4 +1,4 @@
-# Udacity Data Analyst Nanodegree Project
+# Udacity Data Analyst Nanodegree Projects
 
 ## Term 1 - Project 1: Weather Trends
 
