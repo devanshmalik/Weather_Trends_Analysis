@@ -1,0 +1,48 @@
+1) Query to find closest major city in Canada:
+  SELECT *
+  FROM city_list
+  WHERE country IN ('Canada')
+  ORDER BY city
+
+2) Picked Toronto as the major city. Query to extract Toronto temperature data:
+  SELECT *
+  FROM city_data
+  WHERE city='Toronto'
+
+3) Query to extract global yearly temperatures
+  SELECT *
+  FROM global_data
+
+4) City with lowest average temp: Ulaanbaatar, Mongolia (since 1820)
+  SELECT city, avg(avg_temp) AS combined_avg_temp
+  FROM city_data
+  GROUP BY city
+  ORDER BY combined_avg_temp
+
+5) City with highest average temp: Khartoum, Sudan (since 1859), Bangkok (1816)
+  SELECT city, avg(avg_temp) AS combined_avg_temp
+  FROM city_data
+  GROUP BY city
+  ORDER BY combined_avg_temp DESC
+
+6) City with median average temp: Colombo, Brazil (since 1832), Athens (close to median, since 1753)
+  SELECT city, country, avg(avg_temp) AS combined_avg_temp
+  FROM city_data
+  GROUP BY country, city
+  ORDER BY combined_avg_temp
+  LIMIT 173 (since 345 entries total)
+
+
+Missing Values Handling:
+- Missing 2014-2015 data in all cities, estimated values using moving average with n = 5. Smaller value of n used due to increasing frequency of higher temperatures in the recent past
+
+Moving Average Calculation Reasoning:
+      - n = 10 till year 1950, n = 7 from 1950 onwards due to higher frequency of increasing co2 levels around the world
+      - n = 5 since 1995, higher annual growth of co2 https://www.esrl.noaa.gov/gmd/ccgg/trends/gr.html
+      - n = 3 since 2005, even higher annual growth of co2
+      - Exception for colder regions: Kept n=7 till 2005, n=5 2005 onwards due to higher variance in colder areas
+
+CO2 Levels and Global Warming:
+- Co2 levels on earth: https://climate.nasa.gov/climate_resources/24/
+- Ignore pre 1850 temperature data due to Little Ice Age that lasted until mid 1850: https://www.britannica.com/science/Little-Ice-Age
+- Industrial Revolution: https://www.ducksters.com/history/us_1800s/timeline_industrial_revolution.php
