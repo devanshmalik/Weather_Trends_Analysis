@@ -1,6 +1,6 @@
 # Digging Deeper
 
-First project of my journey into the world of data analytics in an attempt to dig deeper in the google amount of data around us!
+First project of my journey into the world of data analytics to dig deeper in the google amount of data around us!
 
 ## Project 1: Weather Trends
 
