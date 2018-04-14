@@ -13,6 +13,15 @@
   SELECT *
   FROM global_data
 
+  Combine query 2 and 3:
+  SELECT city_data.year,
+        city_data.avg_temp as city_temp,
+        global_data.avg_temp as global_temp
+  FROM city_data, global_data
+  WHERE city_data.year=global_data.year
+      AND city_data.city = 'Toronto'
+      AND NOT city_data.avg_temp IS NULL
+
 4) City with lowest average temp: Ulaanbaatar, Mongolia (since 1820)
   SELECT city, avg(avg_temp) AS combined_avg_temp
   FROM city_data
