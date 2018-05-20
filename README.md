@@ -2,7 +2,7 @@
 
 First project of my journey into the world of data analytics to dig deeper in the google amount of data around us!
 
-## Project 1: Weather Trends
+## Project: Weather Trends
 
 Basic analysis of global and local temperature trends using SQL and Microsoft Excel.
 
